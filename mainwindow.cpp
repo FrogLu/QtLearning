@@ -7,6 +7,7 @@
 #include <QStatusBar>
 #include <QToolBar>
 
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -18,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
     openAction = new QAction(QIcon(":/images/doc-open"), tr("&Open..."), this);
     openAction->setShortcuts(QKeySequence::Open);
     openAction->setStatusTip(tr("Open an existing file"));
-    connect(openAction, &QAction::triggered, this, &MainWindow::showUserAgeDialog);
+    connect(openAction, &QAction::triggered, this, &MainWindow::open);
 
     QMenu *file = menuBar()->addMenu(tr("&File"));
     file->addAction(openAction);
@@ -51,24 +52,3 @@ void MainWindow::open()
     dialog->show();
 }
 
-// in dialog:
-void UserAgeDialog::accept()
-{
-    emit userAgeChanged(newAge); // newAge is an int
-    QDialog::accept();
-}
-
-// in main window:
-void MainWindow::showUserAgeDialog()
-{
-    UserAgeDialog *dialog = new UserAgeDialog(this);
-    connect(dialog, &UserAgeDialog::userAgeChanged, this, &MainWindow::setUserAge);
-    dialog->show();
-}
-
-// ...
-
-void MainWindow::setUserAge(int age)
-{
-    userAge = age;
-}

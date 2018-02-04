@@ -19,7 +19,6 @@ private:
     Ui::MainWindow *ui;
 
     void open();
-    void showUserAgeDialog();
 
     QAction *openAction;
 };
