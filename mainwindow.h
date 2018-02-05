@@ -3,6 +3,13 @@
 
 #include <QMainWindow>
 
+#include <QAction>
+#include <QMenuBar>
+#include <QMessageBox>
+#include <QStatusBar>
+#include <QToolBar>
+#include <QDebug>
+
 namespace Ui {
 class MainWindow;
 }
@@ -15,10 +22,12 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+
 private:
     Ui::MainWindow *ui;
 
     void open();
+
 
     QAction *openAction;
 };

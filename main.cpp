@@ -4,6 +4,9 @@
 #include <QSlider>
 #include <QHBoxLayout>
 
+
+void msgBoxInit();
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -11,25 +14,28 @@ int main(int argc, char *argv[])
     MainWindow w;
 
 
-    QWidget window;
-    window.setWindowTitle("Enter your age");
+//    QWidget window;
+//    window.setWindowTitle("Enter your age");
 
-    QSpinBox *spinBox = new QSpinBox(&window);
-    QSlider *slider = new QSlider(Qt::Horizontal, &window);
-    spinBox->setRange(0, 130);
-    slider->setRange(0, 130);
+//    QSpinBox *spinBox = new QSpinBox(&window);
+//    QSlider *slider = new QSlider(Qt::Horizontal, &window);
+//    spinBox->setRange(0, 130);
+//    slider->setRange(0, 130);
 
-    QObject::connect(slider, &QSlider::valueChanged, spinBox, &QSpinBox::setValue);
-    void (QSpinBox:: *spinBoxSignal)(int) = &QSpinBox::valueChanged;        //QSpinBox::valueChanged 有两种函数int，string，需要强制制定为int。
-    QObject::connect(spinBox, spinBoxSignal, slider, &QSlider::setValue);
-    spinBox->setValue(35);
+//    QObject::connect(slider, &QSlider::valueChanged, spinBox, &QSpinBox::setValue);
+//    void (QSpinBox:: *spinBoxSignal)(int) = &QSpinBox::valueChanged;        //QSpinBox::valueChanged 有两种函数int，string，需要强制制定为int。
+//    QObject::connect(spinBox, spinBoxSignal, slider, &QSlider::setValue);
+//    spinBox->setValue(35);
 
-    QHBoxLayout *layout = new QHBoxLayout;
-    layout->addWidget(spinBox);
-    layout->addWidget(slider);
-    window.setLayout(layout);
-    window.show();
+//    QHBoxLayout *layout = new QHBoxLayout;
+//    layout->addWidget(spinBox);
+//    layout->addWidget(slider);
+//    window.setLayout(layout);
+//    window.show();
 
     w.show();
+
     return a.exec();
 }
+
+
