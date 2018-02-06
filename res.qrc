@@ -1,8 +1,7 @@
 <RCC>
     <qresource prefix="/images">
-        <file alias="doc-open">tsinghua.bmp</file>
+        <file alias="doc-open">res/images/file-open.png</file>
+        <file alias="doc-save">res/images/file-save.png</file>
     </qresource>
-    <qresource prefix="/images/fr" lang="fr">
-        <file alias="doc-open">download.bmp</file>
-    </qresource>
+    <qresource prefix="/images/fr" lang="fr"/>
 </RCC>

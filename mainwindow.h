@@ -15,6 +15,8 @@ namespace Ui {
 class MainWindow;
 }
 
+class QTextEdit;
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -28,9 +30,13 @@ private:
     Ui::MainWindow *ui;
 
     void open();
-
+    void openFile();
+    void saveFile();
 
     QAction *openAction;
+    QAction *saveAction;
+
+    QTextEdit *textEdit;
 };
 
 ////////// newspaper.h
