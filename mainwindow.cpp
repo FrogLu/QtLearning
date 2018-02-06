@@ -30,19 +30,15 @@ MainWindow::MainWindow(QWidget *parent) :
     toolBar->addAction(openAction);
     toolBar->addAction(saveAction);
 
-    EventLabel *label = new EventLabel;
-    label->setWindowTitle("MouseEvent Demo");
-    label->resize(300, 200);
-    label->setMouseTracking(true);
-//    label->show();
+
 //    QToolBar *toolBar2 = addToolBar(tr("&Test"));
 //    toolBar2->addAction(openAction);
 //    toolBar2->addAction(saveAction);
 
     statusBar() ;
 
-//    textEdit = new QTextEdit(this);
-//    setCentralWidget(textEdit);
+    textEdit = new QTextEdit(this);
+    setCentralWidget(textEdit);
 }
 
 MainWindow::~MainWindow()
@@ -140,13 +136,13 @@ void MainWindow::saveFile()
 
 void EventLabel::mouseMoveEvent(QMouseEvent *event)
 {
-    this->setText(QString("<center><h1>Move: (%1, %2)</h1></center>")
-                  .arg(QString::number(event->x()), QString::number(event->y())));
+    this->setText(QString("<center><h1>Move: (%1, %2)</h1></center>")              //不能是两个%1，但%1，%2和%1，%3是可以的
+                  .arg(QString::number(event->x()), QString::number(event->y()))); //x,y均为int
 }
 
 void EventLabel::mousePressEvent(QMouseEvent *event)
 {
-    this->setText(QString("<center><h1>Press: (%1, %2)</h1></center>")
+    this->setText(QString("<center><h1>Press: (%1, %3)</h1></center>")
                   .arg(QString::number(event->x()), QString::number(event->y())));
 }
 
