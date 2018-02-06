@@ -30,14 +30,19 @@ MainWindow::MainWindow(QWidget *parent) :
     toolBar->addAction(openAction);
     toolBar->addAction(saveAction);
 
-    QToolBar *toolBar2 = addToolBar(tr("&Test"));
-    toolBar2->addAction(openAction);
-    toolBar2->addAction(saveAction);
+    EventLabel *label = new EventLabel;
+    label->setWindowTitle("MouseEvent Demo");
+    label->resize(300, 200);
+    label->setMouseTracking(true);
+//    label->show();
+//    QToolBar *toolBar2 = addToolBar(tr("&Test"));
+//    toolBar2->addAction(openAction);
+//    toolBar2->addAction(saveAction);
 
     statusBar() ;
 
-    textEdit = new QTextEdit(this);
-    setCentralWidget(textEdit);
+//    textEdit = new QTextEdit(this);
+//    setCentralWidget(textEdit);
 }
 
 MainWindow::~MainWindow()
@@ -131,6 +136,26 @@ void MainWindow::saveFile()
     } else {
         QMessageBox::warning(this, tr("Path"), tr("You did not select any file."));
     }
+}
+
+void EventLabel::mouseMoveEvent(QMouseEvent *event)
+{
+    this->setText(QString("<center><h1>Move: (%1, %2)</h1></center>")
+                  .arg(QString::number(event->x()), QString::number(event->y())));
+}
+
+void EventLabel::mousePressEvent(QMouseEvent *event)
+{
+    this->setText(QString("<center><h1>Press: (%1, %2)</h1></center>")
+                  .arg(QString::number(event->x()), QString::number(event->y())));
+}
+
+void EventLabel::mouseReleaseEvent(QMouseEvent *event)
+{
+    QString msg;
+    msg.sprintf("<center><h1>Release: (%d, %d)</h1></center>",
+                event->x(), event->y());
+    this->setText(msg);
 }
 
 

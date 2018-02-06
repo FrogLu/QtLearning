@@ -10,12 +10,15 @@
 #include <QToolBar>
 #include <QDebug>
 #include <QObject>
+#include <QLabel>
 
 namespace Ui {
 class MainWindow;
 }
 
 class QTextEdit;
+
+
 
 class MainWindow : public QMainWindow
 {
@@ -37,6 +40,14 @@ private:
     QAction *saveAction;
 
     QTextEdit *textEdit;
+};
+
+class EventLabel : public QLabel
+{
+protected:
+    void mouseMoveEvent(QMouseEvent *event);
+    void mousePressEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);
 };
 
 ////////// newspaper.h
