@@ -44,6 +44,8 @@ private:
     void openFile();
     void saveFile();
 
+    void closeEvent(QCloseEvent *event);
+
     QAction *openAction;
     QAction *saveAction;
 
