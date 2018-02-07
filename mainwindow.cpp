@@ -39,6 +39,17 @@ MainWindow::MainWindow(QWidget *parent) :
 
     textEdit = new QTextEdit(this);
     setCentralWidget(textEdit);
+
+    CustomWidget *widget = new CustomWidget(this);
+    CustomButton *cbex = new CustomButton(widget);
+    cbex->setText(tr("CustomButton"));
+    CustomButtonEx *cb = new CustomButtonEx(widget);
+    cb->setText(tr("CustomButtonEx"));
+    QVBoxLayout *widgetLayout = new QVBoxLayout(widget);
+    widgetLayout->addWidget(cbex);
+    widgetLayout->addWidget(cb);
+    this->setCentralWidget(widget);
+
 }
 
 MainWindow::~MainWindow()

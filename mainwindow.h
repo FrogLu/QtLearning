@@ -11,6 +11,9 @@
 #include <QDebug>
 #include <QObject>
 #include <QLabel>
+#include <QEvent>
+#include <QPushButton>
+#include <QMouseEvent>
 
 namespace Ui {
 class MainWindow;
@@ -28,6 +31,11 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+protected:
+    void mousePressEvent(QMouseEvent *event)
+    {
+        qDebug() << "MainWindow";
+    }
 
 private:
     Ui::MainWindow *ui;
@@ -85,6 +93,50 @@ public:
     void receiveNewspaper(const QString & name) const
     {
         qDebug() << "Receives Newspaper: " << name;
+    }
+};
+
+class CustomButton : public QPushButton
+{
+    Q_OBJECT
+public:
+    CustomButton(QWidget *parent) : QPushButton(parent)
+    {
+    }
+protected:
+    void mousePressEvent(QMouseEvent *event)
+    {
+        qDebug() << "CustomButton";
+    }
+};
+
+class CustomButtonEx : public CustomButton
+{
+    Q_OBJECT
+public:
+    CustomButtonEx(QWidget *parent) : CustomButton(parent)
+    {
+    }
+protected:
+    void mousePressEvent(QMouseEvent *event)
+    {
+        event->ignore();
+        qDebug() << "CustomButtonEx";
+    }
+};
+
+class CustomWidget : public QWidget
+{
+    Q_OBJECT
+public:
+    CustomWidget(QWidget *parent) : QWidget(parent)
+    {
+    }
+protected:
+    void mousePressEvent(QMouseEvent *event)
+    {
+        event->ignore();
+        qDebug() << "CustomWidget";
     }
 };
 
