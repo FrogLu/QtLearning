@@ -120,6 +120,7 @@ public:
     {
     }
 protected:
+    bool event(QEvent *e);
     void mousePressEvent(QMouseEvent *event)
     {
         event->ignore();
@@ -135,6 +136,7 @@ public:
     {
     }
 protected:
+    bool event(QEvent *e);
     void mousePressEvent(QMouseEvent *event)
     {
         event->ignore();

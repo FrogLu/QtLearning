@@ -47,13 +47,13 @@ MainWindow::MainWindow(QWidget *parent) :
     widgetLayout->addWidget(cb);
     this->setCentralWidget(widget);
 
-    textEdit = new QTextEdit(this);
-    setCentralWidget(textEdit);
-    connect(textEdit, &QTextEdit::textChanged, [=]() {
-        this->setWindowModified(true);
-    });
+//    textEdit = new QTextEdit(this);
+//    setCentralWidget(textEdit);
+//    connect(textEdit, &QTextEdit::textChanged, [=]() {
+//        this->setWindowModified(true);
+//    });
 
-    setWindowTitle("TextPad [*]");
+//    setWindowTitle("TextPad [*]");
 }
 
 MainWindow::~MainWindow()
@@ -188,3 +188,26 @@ void EventLabel::mouseReleaseEvent(QMouseEvent *event)
 }
 
 
+bool CustomWidget::event(QEvent *e)
+{
+    if (e->type() == QEvent::KeyPress) {
+        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(e);
+        if (keyEvent->key() == Qt::Key_Tab) {
+            qDebug() << "You press tab in widget.";
+            return true;
+        }
+    }
+    return QWidget::event(e);
+}
+
+bool CustomButtonEx::event(QEvent *e)
+{
+    if (e->type() == QEvent::KeyPress) {
+        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(e);
+        if (keyEvent->key() == Qt::Key_Tab) {
+            qDebug() << "You press tab in buttonEx.";
+            return true;
+        }
+    }
+    return QWidget::event(e);
+}
