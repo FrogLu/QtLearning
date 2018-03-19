@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
     MainWindow w;
-
+// test for new git 03.19;
 
 //    QWidget window;
 //    window.setWindowTitle("Enter your age");
