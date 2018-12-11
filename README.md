@@ -1,8 +1,7 @@
 # QtLearning
-## 2.4 --15
-## 2.5 --16
-## 2.6 --18
-## 2.6 --19
-## 2.7 --20
-## 2.8 --21
+[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/FrogLu/QtLearning.svg)](https://github.com/FrogLu/QtLearning)
 
+The code based on [《Qt 学习之路 2》](https://www.devbean.net/2012/08/qt-study-road-2-catelog/) 
+Qt version: Qt5.11.0(Qt Creator 4.6.1)
+Complier version: MinGW 5.30
+Schedule: Section 21
